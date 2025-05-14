@@ -1,0 +1,29 @@
+ÖDEV: Heart Disease UCI Veri Seti Üzerinde Veri Analizi ve Makine Öğrenmesi Modeli
+Amaç: Bu ödevde, Heart Disease UCI veri setini kullanarak veri ön işleme, veri analizi, aykırı değerlerin tespiti ve baskılanması, kategorik değişkenlerin sayısallaştırılması gibi adımları gerçekleştirecek ve sonunda basit bir makine öğrenmesi modeli oluşturacaksınız.
+
+1. Veri Setini Yükleyin
+Heart Disease UCI veri setini indirin ve bir DataFrame olarak yükleyin.
+Veri setinin boyutlarını, sütun isimlerini ve veri türlerini inceleyin.
+2. Veri Setinin Keşfi
+Veri Yapısını İnceleyin: Veri setinin genel yapısına bakın; kaç gözlem ve değişken içerdiğini gözlemleyin.
+Özet İstatistikler: Sayısal sütunların ortalama, standart sapma, min, max ve çeyrek değerlerini inceleyin.
+Eksik Değer Analizi: Eksik veri olup olmadığını kontrol edin ve eksik değerleri nasıl işleyeceğinize karar verin.
+3. Aykırı Değer Analizi
+Box Plot ile Görselleştirme: Her sayısal sütun için box plot çizerek aykırı değerleri görselleştirin.
+Aykırı Değerlerin Tespiti: IQR yöntemiyle aykırı değerleri belirleyin. Q1 (1. çeyrek) ve Q3 (3. çeyrek) değerlerine göre alt ve üst sınırları hesaplayarak, bu sınırların dışında kalan verileri tespit edin.
+Aykırı Değerlerin İşlenmesi: Aykırı değerleri alt ve üst sınırlarla değiştirerek baskılayın
+ÖDEV DATASET HİKAYESİ: Heart Disease UCI
+Açıklama: Heart Disease UCI veri seti, Cleveland Clinic Foundation tarafından toplanmış bir veri setidir ve kalp hastalığı teşhisini amaçlamaktadır. Veri seti, UCI Machine Learning Repository'de popüler bir veri seti olarak bulunmaktadır ve kalp hastalığı teşhisinde kullanılan çeşitli özellikleri içermektedir. Bu veri seti, 1988'de Robert Detrano ve meslektaşları tarafından geliştirilmiştir ve temel amacı, bir bireyin kalp hastalığına sahip olup olmadığını tahmin etmektir.
+
+Amaç: Bu veri setindeki özellikler kullanılarak bireylerin kalp hastalığı riski değerlendirilebilir. Çeşitli makine öğrenmesi ve istatistiksel modellerle, verilerden yola çıkarak kalp hastalığı tanısında önemli ipuçları bulunabilir. Araştırmacılar, veri setini kullanarak bireylerin kalp hastalığına sahip olma olasılığını tahmin eden modeller geliştirebilirler.
+
+Veri Setinin Kullanımı
+Bu veri seti, kalp hastalığını teşhis etmeye yönelik çalışmalarda sıklıkla kullanılan bir veri setidir. Araştırmacılar ve veri bilimciler, bu veri setini kullanarak, hangi özelliklerin kalp hastalığını en çok etkilediğini belirlemeye çalışabilir. Örneğin, yaş, cinsiyet, kan basıncı, kolesterol seviyesi ve egzersiz sırasında anjina gibi faktörlerin kalp hastalığıyla olan ilişkisi analiz edilebilir.
+
+Bu veri seti üzerinde yapılan çalışmalar, doktorlara ve sağlık profesyonellerine hastaların risk değerlendirmesi konusunda yardımcı olabilir. Ayrıca, geliştirilen makine öğrenmesi modelleri sayesinde, kalp hastalığı riskine sahip bireyler erken teşhis edilip uygun tedavi yöntemleri önerilebilir.
+
+Bu Ödevdeki Hedef
+Bu ödevde, Heart Disease UCI veri setini kullanarak veri analizi ile bu süreçte, veri ön işleme, aykırı değer analizi gibi adımları öğreneceksiniz.
+
+Düzenlemek için çift tıklayın (veya enter tuşuna basın)
+
