@@ -1,4 +1,4 @@
-# Heart Disease Prediction and Analysis
+# H2_heart-disease-analysis-prediction
 
 This project focuses on exploratory data analysis, data preprocessing, and machine learning modeling using the Heart Disease UCI dataset. The primary emphasis is on outlier detection, data cleaning, and preparation for predictive modeling.
 
@@ -8,28 +8,53 @@ The Heart Disease UCI dataset was collected by the Cleveland Clinic Foundation t
 
 ## Dataset Description
 
-The Heart Disease UCI dataset includes several clinical features such as:
-- Demographic information (age, sex)
-- Clinical measurements (blood pressure, cholesterol levels)
-- Results from various medical tests
-- The target variable 'num' indicating the presence and severity of heart disease
+The Heart Disease UCI dataset includes several clinical features:
 
-## Main Assignment: Hafta_2_Odev.ipynb
+- **id**: Patient identifier
+- **age**: Age of the patient in years
+- **sex**: Gender of the patient (Male/Female)
+- **dataset**: Source of the data (Cleveland, Hungary, Switzerland, VA Long Beach)
+- **cp**: Chest pain type (typical angina, atypical angina, non-anginal, asymptomatic)
+- **trestbps**: Resting blood pressure in mm Hg
+- **chol**: Serum cholesterol in mg/dl
+- **fbs**: Fasting blood sugar > 120 mg/dl (True/False)
+- **restecg**: Resting electrocardiographic results
+- **thalch**: Maximum heart rate achieved
+- **exang**: Exercise induced angina (True/False)
+- **oldpeak**: ST depression induced by exercise relative to rest
+- **slope**: Slope of the peak exercise ST segment
+- **ca**: Number of major vessels colored by fluoroscopy (0-3)
+- **thal**: Thalassemia (normal, fixed defect, reversable defect)
+- **num**: Diagnosis of heart disease (0-4, where 0 = no presence, 1-4 = presence with increasing severity)
 
-The primary notebook `Hafta_2_Odev.ipynb` demonstrates a complete data analysis workflow:
+## Core Files
+
+- `Hafta_2_Odev.ipynb`: **Main assignment notebook** containing:
+  - Complete data loading and exploration
+  - Comprehensive missing value analysis
+  - Outlier detection and treatment techniques
+  - Data preprocessing for machine learning
+  - Statistical insights into heart disease factors
+
+- Supporting files:
+  - `heart_disease_uci.csv`: Contains 920 patient records with 16 features
+
+## Key Techniques Demonstrated
+
+The assignment notebook showcases several essential data analysis skills:
 
 ### 1. Data Loading and Initial Exploration
 ```python
 import pandas as pd
-path = '/content/drive/MyDrive/Acun Medya/Hafta_2/heart_disease_uci.csv'
+path = 'heart_disease_uci.csv'
 df = pd.read_csv(path)
 ```
 
 ### 2. Comprehensive Data Analysis
-- Examining dataset structure with detailed views of first and last rows
+- Examining dataset structure with detailed views
 - Analyzing dimensions (920 rows, 16 columns)
-- Thorough investigation of data types and column characteristics
-- Detailed statistical summary of all numeric features
+- Investigating data types and column characteristics
+- Calculating statistical summaries of numeric features
 
 ### 3. Missing Value Analysis
 - Creation of comprehensive missing value reports:
@@ -43,19 +68,52 @@ result.columns = ['Eksik Veri Sayısı', 'Veri Tipi']
 
 ### 4. Outlier Detection and Treatment
 - Visualization of data distributions to identify anomalies
-- Implementation of the IQR (Interquartile Range) method to detect outliers
-- Careful suppression of outliers using statistically sound techniques
-- Before/after comparisons of outlier treatment effects
+- Implementation of the IQR (Interquartile Range) method:
+```python
+Q1 = df['age'].quantile(0.25)
+Q3 = df['age'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+```
+- Careful handling of outliers with appropriate techniques
+- Before/after comparisons to evaluate treatment effectiveness
 
-### 5. Data Preprocessing and Model Preparation
-- Handling of missing values with appropriate strategies
-- Transformation of categorical features for machine learning compatibility
-- Feature scaling and normalization for optimal model performance
+### 5. Data Preprocessing and Feature Engineering
+- Handling missing values with appropriate strategies 
+- Categorical feature encoding for machine learning compatibility
+- Feature scaling and normalization techniques
+- Data preparation for modeling
+
+## Key Insights
+
+The analysis reveals several important insights:
+- Several clinical features show significant correlations with heart disease presence
+- Features like 'ca' (number of major vessels) and 'thal' (thalassemia) have high proportions of missing values
+- Age, sex, and chest pain type (cp) are important predictors of heart disease
+- Outlier treatment significantly improves data quality for modeling
+- The prepared dataset provides a solid foundation for machine learning models
+
+## Technical Challenges
+
+- **Missing Data**: Several features have significant missing values, requiring careful imputation strategies
+- **Outliers**: Detecting and handling outliers in medical data requires domain knowledge
+- **Feature Engineering**: Transforming categorical variables appropriately for statistical modeling
+- **Data Interpretation**: Understanding the clinical significance of various features
+
+## Requirements
+
+- Python 3.x
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn (for preprocessing)
+- Jupyter Notebook/Google Colab
 
 ## Additional Resources
 
 - `MO_2_Case_Output.ipynb`: Supplementary case study with alternative analyses
-- `heart_disease_uci.csv`: The dataset containing 920 patient records and 16 features
 - `Ödev Kısmı.txt`: Detailed assignment requirements and dataset context
 
 ## Technical Approach
@@ -66,13 +124,6 @@ The main assignment notebook emphasizes:
 - Data visualization for insight generation
 - Preparation of clean, analysis-ready data
 - Development of reproducible data processing workflows
-
-## Key Insights
-
-- Several features show significant correlations with heart disease presence
-- Outlier detection and treatment dramatically improve data quality
-- Missing values are concentrated in specific features (especially 'ca' and 'thal')
-- The prepared dataset provides a solid foundation for predictive modeling
 
 ## Technologies and Techniques
 
