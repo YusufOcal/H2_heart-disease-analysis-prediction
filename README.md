@@ -1,6 +1,6 @@
 # Heart Disease Prediction and Analysis
 
-This project focuses on exploratory data analysis, data preprocessing, and machine learning modeling using the Heart Disease UCI dataset. The project demonstrates various data science techniques including handling missing values, outlier detection and suppression, and developing a basic machine learning model for heart disease prediction.
+This project focuses on exploratory data analysis, data preprocessing, and machine learning modeling using the Heart Disease UCI dataset. The primary emphasis is on outlier detection, data cleaning, and preparation for predictive modeling.
 
 ## Project Overview
 
@@ -14,57 +14,69 @@ The Heart Disease UCI dataset includes several clinical features such as:
 - Results from various medical tests
 - The target variable 'num' indicating the presence and severity of heart disease
 
-## Project Components
+## Main Assignment: Hafta_2_Odev.ipynb
 
-1. **Data Loading and Exploration**
-   - Loading the dataset and understanding its structure
-   - Analyzing data dimensions, column names, and data types
-   - Generating summary statistics to understand feature distributions
+The primary notebook `Hafta_2_Odev.ipynb` demonstrates a complete data analysis workflow:
 
-2. **Missing Value Analysis**
-   - Identifying columns with missing values
-   - Implementing appropriate strategies for handling missing data
+### 1. Data Loading and Initial Exploration
+```python
+import pandas as pd
+path = '/content/drive/MyDrive/Acun Medya/Hafta_2/heart_disease_uci.csv'
+df = pd.read_csv(path)
+```
 
-3. **Outlier Detection and Treatment**
-   - Using visualization techniques (box plots) to identify outliers
-   - Applying the IQR method to detect statistical outliers
-   - Implementing outlier suppression by capping values at upper and lower boundaries
+### 2. Comprehensive Data Analysis
+- Examining dataset structure with detailed views of first and last rows
+- Analyzing dimensions (920 rows, 16 columns)
+- Thorough investigation of data types and column characteristics
+- Detailed statistical summary of all numeric features
 
-4. **Data Preprocessing**
-   - Converting categorical variables to numerical format
-   - Normalizing or standardizing numerical features
-   - Preparing data for machine learning model development
+### 3. Missing Value Analysis
+- Creation of comprehensive missing value reports:
+```python
+missing_data = df.isnull().sum()
+data_types = df.dtypes
+result = pd.concat([missing_data, data_types], axis=1)
+result.columns = ['Eksik Veri Sayısı', 'Veri Tipi']
+```
+- Development of custom exploration functions for data understanding
 
-5. **Machine Learning Model**
-   - Building a basic machine learning model to predict heart disease
-   - Evaluating model performance and interpreting results
+### 4. Outlier Detection and Treatment
+- Visualization of data distributions to identify anomalies
+- Implementation of the IQR (Interquartile Range) method to detect outliers
+- Careful suppression of outliers using statistically sound techniques
+- Before/after comparisons of outlier treatment effects
 
-## Files in this Directory
+### 5. Data Preprocessing and Model Preparation
+- Handling of missing values with appropriate strategies
+- Transformation of categorical features for machine learning compatibility
+- Feature scaling and normalization for optimal model performance
 
-- `Hafta_2_Odev.ipynb`: Main Jupyter notebook containing the assignment work
-- `MO_2_Case_Output.ipynb`: Case study output with detailed analysis
-- `heart_disease_uci.csv`: The dataset used for analysis
-- `Ödev Kısmı.txt`: Assignment instructions and dataset story
+## Additional Resources
 
-## Setup and Usage
+- `MO_2_Case_Output.ipynb`: Supplementary case study with alternative analyses
+- `heart_disease_uci.csv`: The dataset containing 920 patient records and 16 features
+- `Ödev Kısmı.txt`: Detailed assignment requirements and dataset context
 
-To run this project:
+## Technical Approach
 
-1. Clone the repository
-2. Ensure you have Python and necessary libraries installed (pandas, numpy, matplotlib, scikit-learn)
-3. Open the Jupyter notebooks to view the analysis and code
-4. Run the cells sequentially to reproduce the analysis
+The main assignment notebook emphasizes:
+- Systematic data exploration techniques
+- Statistical methods for outlier identification and handling
+- Data visualization for insight generation
+- Preparation of clean, analysis-ready data
+- Development of reproducible data processing workflows
 
 ## Key Insights
 
-- The analysis reveals important relationships between clinical features and heart disease risk
-- Outlier detection and treatment significantly improve data quality for modeling
-- The machine learning model provides a basis for identifying patients at risk of heart disease
+- Several features show significant correlations with heart disease presence
+- Outlier detection and treatment dramatically improve data quality
+- Missing values are concentrated in specific features (especially 'ca' and 'thal')
+- The prepared dataset provides a solid foundation for predictive modeling
 
-## Technologies Used
+## Technologies and Techniques
 
-- Python
-- Pandas for data manipulation
-- NumPy for numerical operations
-- Matplotlib and Seaborn for data visualization
-- Scikit-learn for machine learning modeling 
+- **Python Data Science Stack**: pandas, numpy, matplotlib, seaborn
+- **Statistical Methods**: IQR-based outlier detection, descriptive statistics
+- **Data Visualization**: Box plots, histograms, correlation matrices
+- **Custom Functions**: Creation of reusable data exploration utilities 
